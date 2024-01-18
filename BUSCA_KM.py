@@ -28,7 +28,7 @@ def calcular_distancia(origem, destino, api_key):
 
         # Verifica se menor_distancia é um número antes de dividir
         if isinstance(menor_distancia, (int, float)):
-            return menor_distancia / 1000
+            return menor_distancia // 1000
         else:
             # Retorna None ou algum outro valor padrão se não for um número
             return None
