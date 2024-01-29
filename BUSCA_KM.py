@@ -69,6 +69,9 @@ if st.button("Calcular Distâncias") and file is not None:
 
         planilha = pd.read_excel(file)
 
+        # Cria a nova coluna combinando ORIGEM e DESTINO
+        planilha['ORIGEM_DESTINO'] = planilha.apply(lambda row: f"{row['ORIGEM']}_{row['DESTINO']}", axis=1)
+
         for index, row in planilha.iterrows():
             origem = row['ORIGEM']
             destino = row['DESTINO']
@@ -81,6 +84,7 @@ if st.button("Calcular Distâncias") and file is not None:
                 distancias.append(None)
 
         planilha['DISTANCIA'] = distancias
+        
 
         st.success("Cálculo de distâncias concluído!")
 
